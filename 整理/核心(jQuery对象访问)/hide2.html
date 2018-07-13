@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>hide demo</title>
+		<style>
+			p {
+				background: #dad;
+				font-weight: bold;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+	<body>
+		<button>隐藏</button>
+		<p>我是P元素</p>
+		<p>我也是p元素</p>
+		<script>
+			$(function() {
+				$("button").click(function() {
+					$("p").hide("slow");
+				});
+			})
+		</script>
+	</body>
+</html>

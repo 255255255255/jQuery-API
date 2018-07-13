@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			
+		</style>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		 <script type="text/javascript">
+        //在javaScript的入口函数，会等到所有的外部文件加载完才开始，索引肯定能获取到图片的高度和宽度
+            window.onload=function(){
+                var height=$("img").height();
+                var width=$("img").width();
+                console.log(height);
+                console.log(width);
+            }
+        </script>
+	</head>
+	<body>
+		<img  src="imgs/001.jpg"/>
+	</body>
+</html>

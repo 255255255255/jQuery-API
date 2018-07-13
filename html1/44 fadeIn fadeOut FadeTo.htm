@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="result" style="width: 100px; height: 100px; background-color: Green">
+    </div>
+    <button class="btn1">
+        Click 1</button>
+    <button class="btn2">
+        Click 2</button>
+    <button class="btn3">
+        Click 3</button>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn1').on('click', function () {
+            $('.result').fadeIn('normal', function () {
+                $('.result').fadeOut('fast');
+            });
+        });
+        $('.btn2').on('click', function () {
+            $('.result').fadeOut('normal', function () {
+                $('.result').fadeIn('fast');
+            });
+        });
+        $('.btn3').on('click', function () {
+            $('.result').fadeTo('normal',0.5);
+        });
+
+    });
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title></title>
+		<style type="text/css">
+			p{
+				width: 300px;
+				height: 100px;
+				background-color: aqua;
+			}
+		</style>
+		<script src="../js/jquery-1.11.1.min.js"></script>
+	    <script type="text/javascript">
+	    	$(document).ready(function(){
+	    		//动态给p元素添加子元素
+	    		$("input:eq(2)").click(function(){
+	    			$("p").append("<h1>我是动态创建的元素</h1>")
+	    		})
+	    		//使用on的方式绑定事件
+	    		$("p").on('click','input',function(){
+	    			console.log($(this).val())
+	    		})
+	    		
+	    		$("p").on('click',function(){
+	    			console.log($(this).html())
+	    		})
+	    		$("input:eq(3)").on('click',function(){
+	    		$( "p").off( "click", "**" );
+	    		})
+	    	})
+	    </script>
+	</head>
+
+	<body>
+       <p>
+       	<input type="button" value="绑定事件"/>
+       	<input type="button" value="解绑事件"/>
+       	<input type="button" value="动态创建元素"/>
+       	<input type="button" value="on事件的解绑"/>
+       </p>
+       <div></div>
+	</body>
+
+</html>

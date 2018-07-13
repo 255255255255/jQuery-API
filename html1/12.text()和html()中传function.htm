@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+<input type="text"/>
+<div>hello world</div>
+<button>Click me</button>
+</body>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //注意：当调用text()和调用html()的区别
+    $(document).ready(function () {
+        $('button').on('click', function () {
+            //$('div').html('<p>hello</p><p>world</p>')    //html的第二种用法
+            //html的第三种用法：
+            $('div').html(function (index, html) {
+                alert('' + index + ":" + html);
+
+            });
+
+
+
+        });
+
+    }); s
+</script>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css"> 
+    div{
+    	width: 300px;
+    	height: 300px;
+    	background-color:#FF0000;
+    	overflow: scroll;
+    }
+    p{
+    	width: 1500px;
+    	height: 1500px;
+    }
+    </style>
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+    <script type="text/javascript"> 
+    $(function(){
+    	//设置scrollTop值
+    	$("input:eq(0)").click(function(){
+    		$("div").scrollTop("100");
+    	})
+    	//获取scrollTop值
+    	$("input:eq(1)").click(function(){
+    		console.log($("div").scrollTop());
+    	})
+    	//设置scrollLeft值
+    	$("input:eq(2)").click(function(){
+    		$("div").scrollLeft("200");
+    	//获取scrollLeft值
+    	})
+    	$("input:eq(3)").click(function(){
+    		console.log($("div").scrollLeft());
+    	})
+    })
+    </script>
+</head>
+<body>
+<input type="button" value="设置scrollTop值" />
+<input type="button" value="获取scrollTop值" />
+<input type="button" value="设置scrollLeft值" />
+<input type="button" value="获取scrollLeft值" />
+<div><p>我是p元素</p></div>
+</body>
+</html>

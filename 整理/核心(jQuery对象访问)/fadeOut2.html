@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  charset="utf-8"/>
+		<style>
+			span {
+				cursor: pointer;
+			}
+			
+			span.hilite {
+				background: yellow;
+			}
+			
+			div {
+				display: inline;
+				color: red;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+	<body>
+		<h3>寻找被隐藏的span元素<div></div></h3>
+		<p>
+			If you <span>really</span> want to go outside
+			<span>in the cold</span> then make sure to wear your <span>warm</span> jacket given to you by your <span>favorite</span> teacher.
+		</p>
+		<script>
+			$(function() {
+				$("span").click(function() {
+					$(this).fadeOut(1000, function() {
+						$("div").text("'" + $(this).text() + "' has faded!");
+						$(this).remove();
+					});
+				});
+				$("span").hover(function() {
+					$(this).addClass("hilite");
+				}, function() {
+					$(this).removeClass("hilite");
+				});
+			})
+		</script>
+	</body>
+</html>

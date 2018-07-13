@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.wrap {
+				width: 410px;
+				margin: 100px auto 0;
+			}
+			
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+				border: 1px solid #c0c0c0;
+			}
+			
+			th,
+			td {
+				border: 1px solid #d0d0d0;
+				color: #404060;
+				padding: 10px;
+			}
+			
+			th {
+				background-color: #09c;
+				font: bold 16px "微软雅黑";
+				color: #fff;
+			}
+			
+			td {
+				font: 14px "微软雅黑";
+			}
+			
+			td a.get {
+				text-decoration: none;
+			}
+			
+			a.del:hover {
+				text-decoration: underline;
+			}
+			
+			tbody tr {
+				background-color: #f0f0f0;
+			}
+			
+			tbody tr:hover {
+				cursor: pointer;
+				background-color: #fafafa;
+			}
+			
+			.form-item {
+				height: 100%;
+				position: relative;
+				padding-left: 100px;
+				padding-right: 20px;
+				margin-bottom: 34px;
+				line-height: 36px;
+			}
+			
+			.form-item>.lb {
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: block;
+				width: 100px;
+				text-align: right;
+			}
+			
+			.form-item>.txt {
+				width: 300px;
+				height: 32px;
+			}
+			
+			.mask {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				background: #000;
+				opacity: 0.15;
+				display: none;
+			}
+			
+			.form-add {
+				position: fixed;
+				top: 30%;
+				left: 50%;
+				margin-left: -197px;
+				padding-bottom: 20px;
+				background: #fff;
+				display: none;
+			}
+			
+			.form-add-title {
+				background-color: #f7f7f7;
+				border-width: 1px 1px 0 1px;
+				border-bottom: 0;
+				margin-bottom: 15px;
+				position: relative;
+			}
+			
+			.form-add-title span {
+				width: auto;
+				height: 18px;
+				font-size: 16px;
+				font-family: 宋体;
+				font-weight: bold;
+				color: rgb(102, 102, 102);
+				text-indent: 12px;
+				padding: 8px 0px 10px;
+				margin-right: 10px;
+				display: block;
+				overflow: hidden;
+				text-align: left;
+			}
+			
+			.form-add-title div {
+				width: 16px;
+				height: 20px;
+				position: absolute;
+				right: 10px;
+				top: 6px;
+				font-size: 30px;
+				line-height: 16px;
+				cursor: pointer;
+			}
+			
+			.form-submit {
+				text-align: center;
+			}
+			
+			.form-submit input {
+				width: 170px;
+				height: 32px;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var $j_cbAll = $("#j_cbAll"), // 获取全选checkbox：jQuery对象
+					j_cbAll = $j_cbAll[0], // 获取全选checkbox：DOM对象
+					$tb = $("#j_tb"), // 获取tbody
+					$cbs = $tb.find(":checkbox"), // 获取tbody中所有的复选框
+					cbsLen = $cbs.length; // 获取复选框的长度
+				// 给全选checkbox绑定单击事件：处理所有选项的checkbox选中状态
+				$j_cbAll.click(function() {
+					var i = 0; // 注意此处i的使用
+					// 全选
+					// if(this.checked) 可以吗？
+					$cbs = $tb.find(":checkbox"); // 获取tbody中所有的复选框
+					cbsLen = $cbs.length;
+					if($(this).prop("checked") === true) {
+						for(; i < cbsLen; i++) {
+							// 设置复选框被选中(第一种方式是DOM对象方式、第二种方式Jquery对象，只能选择一次、第三种方式是Jquery对象、复选框可以选择多次)
+							//$cbs[i].checked = true;
+							//$cbs.attr("checked",true);
+							$cbs.prop("checked", true);
+						}
+					} else {
+						// 全不选
+						for(; i < cbsLen; i++) {
+							// 设置复选框不被选中(第一种方式是DOM对象方式、第二种方式Jquery对象，只能选择一次、第三种方式是Jquery对象、复选框可以选择多次)
+							//$cbs[i].checked = false;
+							//$cbs.attr("checked",false);
+							$cbs.prop("checked", false);
+						}
+					}
+				});
+				// 给所有 tbody中的 checkbox元素 绑定click事件
+				// 给所有 tbody中的 checkbox元素 绑定click事件
+				$cbs.click(function() {
+					$cbs = $tb.find(":checkbox"); // 获取tbody中所有的复选框
+					cbsLen = $cbs.length;
+					// 获取所有被选中的checkbox个数
+					var $selCbLen = $tb.find(":checkbox:checked"); // 此处只有复选框
+					// 判断是否选中 全选checkbox
+					/*if(selCbLen.length === cbsLen) {
+					    j_cbAll.checked = true;
+					} else {
+					    j_cbAll.checked = false;
+					}*/
+
+					$selCbLen.length === cbsLen ?
+						j_cbAll.checked = true :
+						j_cbAll.checked = false;
+				});
+
+				//get
+				$(".get").click(function() {
+					//选择到当前这个a标签的父元素td，在获取到td的父元素tr，让tr自己remove掉
+					$(this).parent().parent().remove();
+				})
+
+				//get选中按钮
+				$("#j_btnDelSel").click(function() {
+					//获取到选中的复选框的个数
+					var checkedLen = $tb.find(":checkbox:checked").length;
+					if(checkedLen <= 0) {
+						alert("请选择要get的技能");
+						return;
+					}
+					//选择到所有的被选中的checkbox,
+					$tb.find(":checkbox:checked").parent("td").parent("tr").remove();
+					$j_cbAll.prop("checked", false)
+				})
+
+				//添加按钮展示 添加表单层
+				$("#j_btnAddData").click(function() {
+					$("#j_mask").show();
+					$("#j_formAdd").show();
+				});
+				//添加数据功能
+				$("#j_btnAdd").click(function() {
+					//因为用的是DOM对象中的方法，所以要jQuery对象要转化成DOM对象
+					//获取到课程的值(Val()函数，获取文本框的值)
+					var lessonvalue = $("#j_txtLesson").val();
+					//获取到所属学院的值
+					var BelSch = $("#j_txtBelSch").val();
+					var trHml =
+						"<tr>" +
+						"<td><input type='checkbox' /></td>" +
+						"<td>" + lessonvalue + "</td>" +
+						"<td>" + BelSch + "</td>" +
+						"<td><a href='javascrip:;' class='get'>GET</a></td>" +
+						"</tr>"
+					//tr、td是tbody的子元素
+					$tb.append(trHml); //直接添加到所指定元素的所有子元素的最后面
+					$("#j_mask").hide();
+					$("#j_formAdd").hide();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div>
+				<input type="button" value="GET选中" id="j_btnDelSel" />
+				<input type="button" value="添加数据" id="j_btnAddData" />
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th><input type="checkbox" id="j_cbAll" /></th>
+						<th>课程名称</th>
+						<th>所属学院</th>
+						<th>已学会</th>
+					</tr>
+				</thead>
+				<tbody id="j_tb">
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td>JavaScript</td>
+						<td>传智播客-前端与移动开发学院</td>
+						<td>
+							<a href="javascrip:;" class="get">GET</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td>css</td>
+						<td>传智播客-前端与移动开发学院</td>
+						<td>
+							<a href="javascrip:;" class="get">GET</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td>html</td>
+						<td>传智播客-前端与移动开发学院</td>
+						<td>
+							<a href="javascrip:;" class="get">GET</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td>jQuery</td>
+						<td>传智播客-前端与移动开发学院</td>
+						<td>
+							<a href="javascrip:;" class="get">GET</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="j_mask" class="mask"></div>
+		<div id="j_formAdd" class="form-add">
+			<div class="form-add-title">
+				<span>添加数据</span>
+				<div id="j_hideFormAdd">x</div>
+			</div>
+			<div class="form-item">
+				<label class="lb" for="j_txtLesson">课程名称：</label>
+				<input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+			</div>
+			<div class="form-item">
+				<label class="lb" for="j_txtBelSch">所属学院：</label>
+				<input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+			</div>
+			<div class="form-submit">
+				<input type="button" value="添加" id="j_btnAdd">
+			</div>
+		</div>
+	</body>
+
+</html>

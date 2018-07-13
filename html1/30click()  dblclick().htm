@@ -1,0 +1,27 @@
+﻿
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div><h3>JQuery Event Handlers</h3></div>
+    <button id="btn1">Single Click</button>
+    <button id="btn2">Double Click</button>
+    </form>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn1').on('click', function () {
+            alert('click');
+        });
+        $('#btn2').on('dblclick', function () {
+            alert('dblclick');
+        });
+        
+    });
+</script>
+</html>

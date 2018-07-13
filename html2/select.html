@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<select name="select" id="select_id" style="width: 100px;">
+			<option value="1">11</option>
+			<option value="2">22</option>
+			<option value="3">33</option>
+			<option value="4">44</option>
+			<option value="5">55</option>
+			<option value="6">66</option>
+		</select>
+	</body>
+	<script type="text/javascript">
+		$("#select_id").change(function() { // 1.为Select添加事件，当选择其中一项时触发   
+			//code...
+			console.dir(this.value);
+		});
+		var checkValue = $("#select_id").val(); // 2.获取Select选中项的Value  
+		var checkText = $("#select_id :selected").text(); // 3.获取Select选中项的Text   
+		var checkIndex = $("#select_id").attr("selectedIndex"); // 4.获取Select选中项的索引值,或者：$("#select_id").get(0).selectedIndex;  
+		var maxIndex = $("#select_id :last").get(0).index; // 5.获取Select最大的索引值
+		/**
+		 * jQuery设置Select的选中项 
+		 */
+		$("#select_id").get(0).selectedIndex = 1; // 1.设置Select索引值为1的项选中  
+		$("#select_id").val(4); // 2.设置Select的Value值为4的项选中  
+		/** 
+		 * jQuery添加/删除Select的Option项 
+		 */
+		$("#select_id").append("<option value='新增'>新增option</option>"); // 1.为Select追加一个Option(下拉项)   
+		$("#select_id").prepend("<option value='请选择'>请选择</option>"); // 2.为Select插入一个Option(第一个位置)  
+		$("#select_id").get(0).remove(1); // 3.删除Select中索引值为1的Option(第二个)  
+		$("#select_id :last").remove(); // 4.删除Select中索引值最大Option(最后一个)   
+		$("#select_id [value='3']").remove(); // 5.删除Select中Value='3'的Option   
+		$("#select_id").empty();
+
+		$("#select_id").find("option:selected").text(); // 获取select 选中的 text :
+
+		$("#select_id").val(); // 获取select选中的 value:
+
+		$("#select_id").get(0).selectedIndex; // 获取select选中的索引:
+
+		//设置select 选中的value：
+		$("#select_id").attr("value", "Normal");
+		$("#select_id").val("Normal");
+		$("#select_id").get(0).value = value;
+
+		//设置select 选中的text，通常可以在select回填中使用
+		var numId = 33 //设置text==33的选中！
+		var count = $("#select_id  option").length;
+		for(var i = 0; i < count; i++) {
+			if($("#select_id").get(0).options[i].text == numId) {
+				$("#select_id").get(0).options[i].selected = true;
+				break;
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("div").on("click","button",[1,2,3], function(e) {
+					console.log(e.data);
+				})
+				
+			})
+		</script>
+	</head>
+
+	<body>
+			<div>
+				<button>我是按钮</button>
+			</div>
+	</body>
+
+</html>

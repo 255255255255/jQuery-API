@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<script>
+			(function($) {
+				console.log($.fn);
+				$.fn.mylog=function(color){
+					console.log("这是我自己封装的方法");
+				}	
+			})(jQuery)
+			$("div").mylog();	
+		</script>		
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

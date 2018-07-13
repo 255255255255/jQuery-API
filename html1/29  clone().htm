@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+<div class="hello">hello</div>
+<div class="world">world</div>
+<button>Click</button>
+</body>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('button').on('click', function () {
+            //$('.hello').before($('.world'));  //这个剪贴的方式
+            $('.hello').before($('.world').clone()); //移动的是复制的部分，而不是本身
+
+
+        });
+
+    });
+</script>
+</html>

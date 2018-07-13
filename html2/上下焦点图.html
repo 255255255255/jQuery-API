@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				border: 0;
+			}
+			
+			.all {
+				width: 490px;
+				height: 170px;
+				margin: 100px auto;
+				position: relative;
+				padding: 5px;
+				border: 1px solid #ccc;
+			}
+			
+			.all div {
+				width: 490px;
+				height: 170px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.all ul {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.all img {
+				display: block;
+			}
+			
+			.all ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			.all ol li {
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #ccc;
+				float: left;
+				margin-left: 10px;
+				line-height: 20px;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.all ol li.current {
+				background: yellow;
+			}
+		</style>
+
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".all ol li").mouseenter(function() {
+					$(this).addClass("current").siblings().removeClass("current");
+					var index = $(this).index();
+					$("ul ").stop().animate({
+						top: index * -170
+					});
+					num = index; //index()获取当前元素的索引号
+				});
+				//制作一个定时器去实现自动播放功能； 定时器模块
+				var timer = null;
+				var num = 0;
+				timer = setInterval(autoplay, 2000);
+				function autoplay() {
+					num++;
+					if(num > 4) {
+						num = 0;
+					}
+					$('.all ol li').eq(num).addClass('current').siblings().removeClass();
+					$('.all ul').stop().animate({
+						top: num * -170
+					});
+				}
+				//鼠标移上停止定时器模块，hover切换动画
+				$('.all div').hover(function(e) {
+					//停止自动播放，清除定时器；
+					clearInterval(timer);
+				}, function(e) {
+					clearInterval(timer);
+					timer = setInterval(autoplay, 2000);
+				});
+
+			});
+		</script>
+
+		</script>
+	</head>
+
+	<body>
+		<div class="all">
+			<div>
+				<ul>
+					<li><img src="imgs/01.jpg" width="490" height="170"></li>
+					<li><img src="imgs/02.jpg" width="490" height="170"></li>
+					<li><img src="imgs/03.jpg" width="490" height="170"></li>
+					<li><img src="imgs/04.jpg" width="490" height="170"></li>
+					<li><img src="imgs/05.jpg" width="490" height="170"></li>
+				</ul>
+				<ol>
+					<li class="current">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ol>
+			</div>
+		</div>
+
+	</body>
+
+</html>

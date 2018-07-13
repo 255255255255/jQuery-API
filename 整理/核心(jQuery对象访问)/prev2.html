@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        //$('.third-item').prev().css('background-color', 'red');
+      //$('li.third-item').prevAll().css('background-color', 'red');
+      //$('li.third-item').nextAll().css('background-color', 'red');
+      $('li.third-item').next().css('background-color', 'red');
+      })
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>list item 1</li>
+      <li>list item 2</li>
+      <li class="third-item">list item 3</li>
+      <li>list item 4</li>
+      <li>list item 5</li>
+    </ul>
+  </body>
+</html>

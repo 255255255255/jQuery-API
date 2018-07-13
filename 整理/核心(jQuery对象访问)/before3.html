@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			p {
+				background: yellow;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+
+	<body>
+		<b>Hello</b>
+		<p> is what I said...</p><b>Hello</b>
+		<script>
+			$(function(){
+			$("p").before($("b"));})
+		</script>
+	</body>
+</html>

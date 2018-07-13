@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<p>我是p元素</p>
+		</div>
+		<input type="button" value="设置text值" />
+		<input type="button" value="获取text值" />
+	</body>
+	<script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("input:eq(0)").click(function() {
+				//设置text内容
+				//$("div").text("我是标题");
+				
+				$("div").text("<h1>我是标题</h1>");
+			});
+			//获取text内容
+			$("input:eq(1)").click(function() {
+				var text = $("div").text();
+				alert(text);
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+	<body>
+		<input id="checkAll" type="checkbox"  value="value"/>全选
+		<input name="subBox" type="checkbox" />项1
+		<input name="subBox" type="checkbox" />项2
+		<input name="subBox" type="checkbox" />项3
+		<input name="subBox" type="checkbox" />项4
+	</body>
+	<!--全选和全不选-->
+	<!--<script type="text/javascript">
+		$(function() {
+			$("#checkAll").click(function() {
+				$('input[name="subBox"]').attr("checked", this.checked);
+			});
+			
+			var $subBox = $("input[name='subBox']");
+			$subBox.click(function() {
+				$("#checkAll").attr("checked", $subBox.length == $("input[name='subBox']:checked").length ? true : false);
+			});
+		});
+	</script>-->
+	<!--checkbox的常用属性-->
+
+	<script type="text/javascript">
+		$(function() {
+		// 获取指定id的复选框的值 ,value在默认情况下为on
+		var isSelected = $("#checkAll").attr("checked"); // 判断id=checkAll的那个复选框是否处于选中状态，选中则isSelected=true;否则isSelected=false;  //jquery1.6之后版本，用prop()判断。应该写成 isSelected = $("#checkAll").prop("checked");
+		$("#checkAll").attr("checked", true); // or  
+		$("#checkAll").attr("checked", 'checked'); // 将id=checkbox_id3的那个复选框选中，即打勾  
+		$("#checkAll").attr("checked", false); // or  
+		$("#checkAll").attr("checked", ''); // 将id=checkbox_id3的那个复选框不选中，即不打勾  
+		$("input[name=subBox][value=3]").attr("checked", 'checked'); // 将name=subBox, value=3 的那个复选框选中，即打勾  
+		$("input[name=subBox][value=3]").attr("checked", ''); // 将name=subBox, value=3 的那个复选框不选中，即不打勾  
+		$("input[type=checkbox][name=subBox]").get(2).checked = true; // 设置index = 2，即第三项为选中状态  
+		$("input[type=checkbox]:checked").each(function() { //由于复选框一般选中的是多个,所以可以循环输出选中的值  
+			alert($(this).val());
+		});
+		});
+	</script>
+
+</html>

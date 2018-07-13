@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="outer" style="background-color: #099">
+        click outer
+        <p id="inner" style="background-color: #9C0">
+            click inner</p>
+        <br>
+    </div>
+</body>
+<script type="text/javascript">
+    function G(id) {
+        return document.getElementById(id);
+    }
+    function addEvent(obj, ev, handler) {
+        if (window.attachEvent) {
+            obj.attachEvent("on" + ev, handler);
+        } else if (window.addEventListener) {
+            obj.addEventListener(ev, handler, false);
+        }
+    }
+    function test(e) {
+        alert("e.target.tagName : " + e.target.tagName + "\n e.currentTarget.tagName : " + e.currentTarget.tagName);
+    }
+    var outer = G("outer");
+    var inner = G("inner");
+    //addEvent(inner, "click", test); 
+    addEvent(outer, "click", test); 
+</script>
+</html>

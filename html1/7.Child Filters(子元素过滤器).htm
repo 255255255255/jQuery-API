@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    
+    <div>
+       <li>I am li</li></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li></ul>
+    <button>
+        Click me</button>
+</body>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('button').on('click', function () {
+        });
+        //$('li:first-child').css('backgroundColor', 'green');
+        //$('li:last-child').css('backgroundColor', 'green');
+        //$('li:nth-child(even)').css('backgroundColor', 'green');
+        //$('li:nth-child(odd)').css('backgroundColor', 'green');
+        //$('li:nth-child(2)').css('backgroundColor', 'green');
+        //$('li:nth-child(2n)').css('backgroundColor', 'green');
+      //$('li:nth-child(2n+1)').css('backgroundColor', 'green');
+
+        $('li:only-child').css('backgroundColor', 'green');//只选中是单独子元素的元素
+    });
+
+</script>
+</html>

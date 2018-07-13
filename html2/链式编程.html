@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var $="{ name : 'itecast' }";
+		</script>
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+		<script>
+			$(function(){
+				$("li").mouseenter(function(){
+					var data=$(this).data("isload");
+					if(data===0){
+						
+						$(this).append("<p>我是动态获取的P元素</P>");
+						
+						$(this).data("isload","1");
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+		<li data-isLoad = "0">菜单一</li>	
+		<li data-isLoad = "0">菜单二</li>
+		<li data-isLoad = "0">菜单三</li>
+		</ul>
+	</body>
+
+</html>

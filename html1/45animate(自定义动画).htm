@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html >
+<html>
+
+	<head>
+		<title></title>
+	</head>
+	<style type="text/css">
+		.block {
+			position: relative;
+			background-color: Red;
+			width: 48px;
+			height: 48px;
+			float: left;
+			margin: 5px;
+		}
+		.result{
+			width: 50px;
+			height: 50px;
+			font-size: 10px;
+			background-color: #E9967A;
+			border-width: medium;
+		}
+	</style>
+
+	<body>
+		<div class="result">animate
+		</div>
+		<button class="btn1">
+        Click 1</button>
+		<button class="btn2">
+        Click 2</button>
+		<button class="btn3">
+        Click 3</button>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.btn1').click(function() {
+				$('.result').animate({
+					width: "100%",
+					height: "100%",
+					fontSize: "10em",
+					borderWidth: 10
+				}, 1000);
+			});
+			$('.btn2').click(function() {
+				$('.result').animate({
+					width: "+=30px",
+					height: "-=30px"
+				}, 1000);
+			});
+			$('.btn3').click(function() {
+				$('.block:first').animate({
+					left: 100
+				}, {
+					duration: 1000,
+					step: function(now, fx) {
+						$('.block:gt(0)').css('left', now);
+					}
+				});
+			});
+		});
+	</script>
+
+</html>

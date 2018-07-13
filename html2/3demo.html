@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			$("div")
+				.children("p")
+				.children("span")
+				.css("background-color","red")
+				.end()
+				.css("background-color","pink")
+			})
+		</script>
+	</head>
+	<body>
+		<div>
+			<p>我是div内部的p元素
+				<span>我是div内部的p元素的内部的span元素</span>
+			</p>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			p {
+				background: yellow;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+
+	<body>
+		<p>I would like to say: </p>
+		<script>
+			$(function(){
+			$("p").after(document.createTextNode("Hello"));
+			})
+		</script>
+	</body>
+</html>

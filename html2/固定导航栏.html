@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.main {
+				width: 865px;
+				margin: 0 auto;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		   <script type="text/javascript">
+		$(window).load(function() {
+			var topHeight = $(".top").height();
+			var navHeight = $(".nav").height();
+            $(window).scroll(function () {
+                var docSccrollTop = $(document).scrollTop();
+                if(docSccrollTop > topHeight){
+                    $(".nav").css({
+                    	"position":"fixed","top":0
+                    });
+                    // 此时 nav的位置固定，如果不设置 main部分的margin-top的话，将有一部分内容被挡住 nav的高度
+                   $(".main").css("margin-top", navHeight);
+                }else{
+                   $(".nav").css({"position":"static"});  /*静态定位*/
+                    $(".main").css("margin-top",0);
+                }
+            });
+		});
+
+    </script>
+
+	</head>
+
+	<body>
+		<div class="top">
+			<img src="imgs/top.png" />
+		</div>
+		<div class="nav">
+			<img src="imgs/nav.png" />
+
+		</div>
+		<div class="main">
+			<img src="imgs/main.png" />
+		</div>
+	</body>
+
+</html>

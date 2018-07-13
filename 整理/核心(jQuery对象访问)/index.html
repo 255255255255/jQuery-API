@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			div {
+				background: yellow;
+				margin: 5px;
+			}
+			span {
+				color: red;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+	<body>
+		<span>点我</span>
+		<div>我是div1</div>
+		<div>我是div2</div>
+		<div>我是div3</div>
+		<script>
+			$("div").click(function() {
+				var index = $("div").index(this);
+				$("span").text("点击的DIV的索引是：" + index);
+			});
+		</script>
+	</body>
+</html>

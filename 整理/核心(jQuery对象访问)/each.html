@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				color: red;
+			}
+		</style>
+		<script type="text/javascript" src="../jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			$("button").click(function() {
+					$("div").each(function(index) {
+						if(this.style.color != "blue") {
+							this.style.color = "blue";
+						} else {
+							this.style.color = "";
+						}
+					});
+			});
+		})
+		</script>
+	</head>
+	<body>
+		<div>我是div</div>
+		<div>我是div</div>
+		<div>我是div</div>
+		<button>我是按钮</button>
+	</body>
+
+</html>

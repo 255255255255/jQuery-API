@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		
+	</head>
+
+	<body>
+		<input type="radio" name="radio" id="radio1" value="1" />1
+		<input type="radio" name="radio" id="radio2" value="2" />2
+		<input type="radio" name="radio" id="radio3" value="3" />3
+		<input type="radio" name="radio" id="radio4" value="4" />4
+	</body>
+<script type="text/javascript">
+			$("input[name=radio]:eq(0)").attr("checked", 'checked'); //这样就是第一个选中咯。
+			//jquery中，radio的选中与否和checkbox是一样的。
+			$("#radio1").attr("checked", "checked");
+			$("#radio1").removeAttr("checked");
+			var aa=$("input[type='radio'][name='radio']:checked").length == 0 ? "没有任何单选框被选中" : "已经有选中";
+            console.log(aa);
+     		$('input[type="radio"][name="radio"]:checked').val(); // 获取一组radio被选中项的值
+			$("input[type='radio'][name='radio'][value='2']").attr("checked", "checked"); // 设置value = 2的一项为选中  
+			$("#radio2").attr("checked", "checked"); // 设置id=radio2的一项为选中  
+			$("input[type='radio'][name='radio']").get(1).checked = true; // 设置index = 1，即第二项为当前选中  
+			var isChecked = $("#radio2").attr("checked"); // id=radio2的一项处于选中状态则isChecked = true, 否则isChecked = false;  
+			var isChecked = $("input[type='radio'][name='radio'][value='2']").attr("checked"); // value=2的一项处于选中状态则isChecked = true, 否则isChecked = false;
+		</script>
+</html>

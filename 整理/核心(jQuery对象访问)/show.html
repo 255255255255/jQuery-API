@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			p {
+				background: yellow;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+	<body>
+		<button>Show it</button>
+		<p style="display: none">Hello 2</p>
+		<script>
+			$(function() {
+				$("button").click(function() {
+					$("p").show("slow");
+				});
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+<div>Hello World</div>
+<div style="width:100px; height:100px; background-color:Purple"></div>
+<div>Maiziedu<p></p></div>
+<button>Click Me</button>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('button').on('click', function () {
+           // $('div:contains(edu)').css('backgroundColor', 'green');
+           // $('div:empty').css('backgroundColor', 'green');
+            //$('div:has(p)').css('backgroundColor', 'green');
+           $('div:parent').css('backgroundColor', 'green');
+        });
+    });
+</script>
+</html>

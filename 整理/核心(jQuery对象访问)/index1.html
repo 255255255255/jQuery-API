@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			div {
+				font-weight: bold;
+				color: #090;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li id="li1">我是第一个li</li>
+			<li id="li2">我是第二个li</li>
+			<li id="li3">我是第三个li</li>
+		</ul>
+		<div></div>
+		<script>
+			var listItem = $('#li3');
+			$('div').html('Index: ' + $('li').index(listItem));
+		</script>
+
+	</body>
+
+</html>
