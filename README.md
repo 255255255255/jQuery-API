@@ -1,6 +1,7 @@
 # jQuery的作者-John Resig
 
 > 今天才在百度百科中看到有关John Resig(jQuery之父)的介绍，颇为佩服，有些可惜为什么没有早些看到，大神果真是大神，真的是大写加粗的酷，大神的高中和大学VS学渣本人的高中和大学，我真的是完败了，高中的我根本就没听说过JavaScript、我也是到了大二才知道了JavaScript，邓小平爷爷说得对,计算机要从娃娃抓起。
+
 ## John Resig: JavaScript's Chuck Norris
 
 Chuck Norris（查克·诺里斯，美国著名武术家，世界著名空手道巨星）
