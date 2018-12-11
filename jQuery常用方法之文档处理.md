@@ -16,8 +16,7 @@ about:
 
 * 参数可以为html标签
 
-```javascript
-
+```
 <!DOCTYPE html>
 <html>
     <head>
